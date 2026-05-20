@@ -1,6 +1,6 @@
 ---
 title: Hexo 博客完整部署到 GitHub 教程（Windows 版）
-tags: 技术教程
+tags: 技术分享
 categories: 技术分享
 ---
 # Hexo 博客完整部署到 GitHub 教程（Windows 版）
