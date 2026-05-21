@@ -9,7 +9,7 @@ description: 这是一个使用Hexo搭建的技术博客,
 keywords:
 author: gaoshoulailo
 language: zh-CN
-timezone: Asia/Shanghaicc
+timezone: Asia/Shanghai
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
