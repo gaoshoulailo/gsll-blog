@@ -416,27 +416,6 @@ Java.perform(() => {
     };
 });
 ```
-
-#### 三层联动预期输出
-
-```
-[readMD5Key] Native secret = abc123def456789
-
-[签名入口 b()]
-  str (传入参数) = 17808298599791    ← st 值
-  this.a         = 参数片段_A
-  this.e         = 参数片段_B
-  this.j         = 参数片段_C
-  this.c         = 参数片段_D
-  this.l         = 参数片段_E
-  this.m         = 参数片段_F
-
-[MD5 输入] 完整拼接原文 = 参数片段_A参数片段_B...参数片段_F17808298599791abc123def456789
-[MD5 输出] 签名结果     = 552c203bebf3dbafa7e96f4cd7adc9c7
-
-  sn (签名结果)   = 552c203bebf3dbafa7e96f4cd7adc9c7   ← 与网络请求中的 sn 一致 ✅
-```
-
 ---
 
 ## 六、总结
