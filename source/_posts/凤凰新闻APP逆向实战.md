@@ -1,5 +1,13 @@
-# X凰新闻 APP 逆向实战 — 绕过 libmsaoaidsec.so 反调试与签名定位
 
+---
+title: X凰新闻 APP 逆向实战 — 绕过 libmsaoaidsec.so 反调试与签名定位
+tags: [技术分享]
+categories: [技术分享]
+cover: https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/8.webp
+top_img: https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/8.webp
+date: 2026-06-08 12:04:00
+---
+# X凰新闻 APP 逆向实战 — 绕过 libmsaoaidsec.so 反调试与签名定位
 > **App 版本：** 8.00.5  
 > **包名：** `com.ifeng.news2`  
 > **环境：** Pixel 6 (Android 15) / Frida 17.6.1  
