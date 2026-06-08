@@ -3,8 +3,8 @@
 title: X凰新闻 APP 逆向实战 — 绕过 libmsaoaidsec.so 反调试与签名定位
 tags: [技术分享]
 categories: [技术分享]
-cover: https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/8.webp
-top_img: https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/8.webp
+cover: https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/13.jpg
+top_img: https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/13.jpg
 date: 2026-06-08 12:04:00
 ---
 # X凰新闻 APP 逆向实战 — 绕过 libmsaoaidsec.so 反调试与签名定位
