@@ -552,5 +552,5 @@ Set-Alias -Name hd -Value hexo-deploy
 
 ---
 
-> 本教程基于 Hexo + GitHub Pages + Butterfly 主题，Windows 系统实践+AI编写。
+> 本教程基于 Hexo + GitHub Pages + Butterfly 主题，Windows 系统实践+AI排版。
 
