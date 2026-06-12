@@ -64,21 +64,18 @@ date: 2026-06-12 19:43:00
 function createCalcFn(wasmInstance) {
     const exports = wasmInstance.instance.exports;
     return function(e) {
-        exports.reset();                          // 1. 重置状态
+        exports.reset();                          
         e.map(function(e) {
-            return exports.arg(e);                // 2. 逐个喂入参数
+            return exports.arg(e);                
         });
-        return Array(exports.calc())              // 3. calc() 返回结果数量
+        return Array(exports.calc())             
             .fill(-1)
             .map(function() {
-                return exports.ret();             // 4. 逐个取出结果
+                return exports.ret();            
             });
     };
 }
 ```
-
-这是一个典型的 **WASM 栈式计算模式**：`reset → arg×N → calc → ret×N`。
-
 ### 3.4 查看入参
 
 断点查看传入 `arg()` 的数组值：
@@ -93,7 +90,7 @@ function createCalcFn(wasmInstance) {
 
 ![网页结果](https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/%E9%9B%B7%E6%B1%A0level2_9.png)
 
-**结论：两者完全一致，WASM 计算模块成功还原。**
+**结果一致，WASM 计算模块成功还原。**
 
 ---
 
@@ -153,8 +150,6 @@ function createCalcFn(wasmInstance) {
 ### 5.3 轨迹格式
 
 每个轨迹点格式为：`[相对时间偏移(ms), ceil(clientX), ceil(clientY)]`
-
-Python 自动生成方法参见 `generate_serials.py`。
 
 ---
 
