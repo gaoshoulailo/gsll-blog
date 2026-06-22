@@ -37,9 +37,10 @@ date: 2026-06-22 16:19:00
 
 ### 2.1 编写 Hook 脚本
 
-使用 Frida Hook `HNASignature.getHNASignature`，打印输入输出参数：
+*跟栈追踪到 HNASignature.getHNASignature*
 ![2.png](https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/%E6%B5%B7%E5%8D%97%E8%88%AA%E7%A9%BA2.png)
 ![3.png](https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/%E6%B5%B7%E5%8D%97%E8%88%AA%E7%A9%BA3.png)
+使用 Frida Hook `HNASignature.getHNASignature`，打印输入输出参数：
 ```typescript
 import Java from "frida-java-bridge";
 
@@ -112,8 +113,6 @@ function hookDlopen() {
 setImmediate(hookDlopen);
 ```
 
-
-*跟栈追踪到 HNASignature.getHNASignature*
 
 ### 2.2 Hook 结果
 
