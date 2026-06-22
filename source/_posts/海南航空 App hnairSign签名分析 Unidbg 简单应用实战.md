@@ -9,6 +9,7 @@ date: 2026-06-22 16:19:00
 # XX航空 App hnairSign签名分析 —— Unidbg 简单使用
 
 ## 概述
+*分析时间：2026-06  | 分析环境：Android 15 / Pixel 6 / unidbg 0.9.8 / Frida / IDA Pro / JDK 21*
 
 本文以 **XX航空 App（v10.15.0）** 为目标app，简单应用Unidbg完成so文件的函数调用。
 
@@ -532,7 +533,7 @@ public class HainanAirlines extends AbstractJni {
 
 ```
 ┌──────────────────────────────────────────────────────────┐
-│  1. 抓包                    找出 hnairSign 等关键参数     │    │
+│  1. 抓包                    找出 hnairSign 等关键参数     │  
 ├──────────────────────────────────────────────────────────┤
 │  2. Frida Hook             定位 Java 层签名函数           │
 │                            HNASignature.getHNASignature   │
@@ -571,6 +572,4 @@ public class HainanAirlines extends AbstractJni {
 | SO 路径 | `lib/arm64-v8a/libsignature.so`                           |
 | APK 路径 | `apk/XX航空_10.15.0.apk`                                    |
 
-
-
-*分析时间：2026年 | 分析环境：Android 15 / Pixel 6 / unidbg 0.9.8 / Frida / IDA Pro / JDK 21*
+> **免责声明：** 本文仅供安全研究和学习目的使用。请勿将文中技术用于非法用途，否则后果自负。  
