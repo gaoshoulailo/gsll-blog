@@ -1056,7 +1056,7 @@ home_top:
   siteText: anheyu.com
   category:
     - name: Android Reverse
-      path: /categories/Android Reverse/
+      path: /tags/Android-Reverse/
       shadow: var(--anzhiyu-shadow-blue)
       class: blue
       icon: anzhiyu-icon-dove
@@ -1065,8 +1065,8 @@ home_top:
       shadow: var(--anzhiyu-shadow-red)
       class: red
       icon: anzhiyu-icon-fire
-    - name: 生活日常
-      path: /categories/生活日常/
+    - name: Web Reverse
+      path: /tags/Web-Reverse/
       shadow: var(--anzhiyu-shadow-green)
       class: green
       icon: anzhiyu-icon-book
