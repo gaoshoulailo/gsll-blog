@@ -139,7 +139,7 @@ favicon: /favicon.ico
 
 # Avatar (头像)
 avatar:
-  img: https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/background-imageavatar.jpg
+  img: /img/avatar.jpg
   effect: false
 
 # Disable all banner image
@@ -693,10 +693,10 @@ canvas_fluttering_ribbon:
 # https://github.com/hustcc/canvas-nest.js
 canvas_nest:
   enable: true
-  color: "0,150,130" #color of lines, default: '0,0,0'; RGB values: (R,G,B).(note: use ',' to separate.)
-  opacity: 0.5 # the opacity of line (0~1), default: 0.5.
+  color: "255,255,255" #color of lines, default: '0,0,0'; RGB values: (R,G,B).(note: use ',' to separate.)
+  opacity: 0.7 # the opacity of line (0~1), default: 0.5.
   zIndex: -1 # z-index property of the background, default: -1.
-  count: 99 # the number of lines, default: 99.
+  count: 200 # the number of lines, default: 99.
   mobile: false
 
 # Typewriter Effect (打字效果)
@@ -792,7 +792,7 @@ preloader:
   source: 3
   # pace theme (see https://codebyzach.github.io/pace/)
   pace_css_url:
-  avatar: https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1/background-imageavatar.jpg #https://npm.elemecdn.com/anzhiyu-blog-static@1.0.4/img/avatar.jpg # 自定加载动画义头像
+  avatar: /img/avatar.jpg # 自定加载动画义头像
 
 # aside (侧边栏)
 # --------------------------------------
