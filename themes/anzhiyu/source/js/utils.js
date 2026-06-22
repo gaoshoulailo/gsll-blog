@@ -756,7 +756,7 @@ const anzhiyu = {
     }
 
     // 否则重新从服务器获取数据
-    fetch("/json/music.json")
+    fetch(GLOBAL_CONFIG.root + "json/music.json")
       .then(response => response.json())
       .then(songs => {
         const cacheData = {
@@ -978,7 +978,7 @@ const anzhiyu = {
         songs = cacheData.songs;
       } else {
         // 否则重新从服务器获取数据
-        const response = await fetch("/json/music.json");
+        const response = await fetch(GLOBAL_CONFIG.root + "json/music.json");
         songs = await response.json();
         cacheData.timestamp = currentTime;
         cacheData.songs = songs;
