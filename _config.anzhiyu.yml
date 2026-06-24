@@ -1022,9 +1022,9 @@ pangu:
 # https://github.com/verlok/vanilla-lazyload
 lazyload:
   enable: true
-  field: site # site/post
-  placeholder:
-  blur: true
+  field: none # site/post
+  placeholder: '#0a0a0a'
+  blur: false
   progressive: true
 
 # PWA
