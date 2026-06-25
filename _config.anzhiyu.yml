@@ -1162,7 +1162,7 @@ ptool:
   share_weibo: true
   share_copyurl: true
   categories: false # 是否显示分类
-  mode: # 运营模式与责任，不配置不显示
+  mode: /wechat/ # 运营模式与责任，不配置不显示
 
 # 欢迎语配置
 greetingBox:
