@@ -1,7 +1,6 @@
 ---
 title: Hello World
 tags: [技术教程]
-categories: [技术教程]
 date: 2026-05-21 10:30:00
 top_img: https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1/background-image2.webp
 cover: https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1/background-image2.webp

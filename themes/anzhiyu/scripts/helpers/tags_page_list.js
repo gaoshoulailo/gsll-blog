@@ -1,5 +1,6 @@
 hexo.extend.helper.register('tags_page_list', function (type) {
   const tags = hexo.locals.get(type);
+  const url_for = this.url_for;
 
   // Manually sort tags based on the length of tag names
   const sortedTags = tags.reduce((acc, tag) => {
