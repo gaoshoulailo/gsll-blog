@@ -1,7 +1,7 @@
 ---
 title: "Pixel 6 + Android 15 Frida `Java.perform()` TypeError: not a function 解决方案"
 tags: [技术分享, Android Reverse]
-categories: [技术分享]
+categories: [技术分享, Android Reverse]
 cover: https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/8.webp
 top_img: https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/8.webp
 date: 2026-05-28 14:30:00

@@ -1,7 +1,7 @@
 ﻿---
 title: 雷池 WAF 人机验证逆向分析
 tags: [技术分享, Web Reverse]
-categories: [技术分享]
+categories: [技术分享, Web Reverse]
 cover: https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/14.jpg
 top_img: https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/14.jpg
 date: 2026-06-12 19:43:00
