@@ -15,7 +15,7 @@ hexo.extend.helper.register('tags_page_list', function (type) {
   let html = ``;
   sortedTags.forEach(function (item) {
     html += `
-      <a href="/${item.path}" id="/${item.path}">
+      <a href="${url_for(item.path)}" id="${url_for(item.path)}">
         <span class="tags-punctuation">#</span>${item.name}
         <span class="tagsPageCount">${item.length}</span>
       </a>
