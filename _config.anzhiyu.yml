@@ -200,9 +200,9 @@ mainTone:
 # wordcount (字数统计)
 wordcount:
   enable: false
-  post_wordcount: true
-  min2read: true
-  total_wordcount: true
+  post_wordcount: false
+  min2read: false
+  total_wordcount: false
 
 # Display the article introduction on homepage
 # 1: description
@@ -1237,7 +1237,7 @@ rightClickMenu:
 
 # 首页随便逛逛people模式 而非技能点模式，关闭后为技能点模式需要配置creativity.yml
 peoplecanvas:
-  enable: true
+  enable: false
   img: https://upload-bbs.miyoushe.com/upload/2024/07/27/125766904/ba62475f396df9de3316a08ed9e65d86_5680958632268053399..png
 
 # 动效
