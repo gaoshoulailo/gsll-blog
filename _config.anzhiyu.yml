@@ -1077,9 +1077,9 @@ home_top:
     swiper_css: https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/swiper/swiper.min.css #swiper css依赖
     swiper_js: https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/swiper/swiper.min.js #swiper js依赖
   banner:
-    tips: 暂无内容
-    title: 阿巴阿巴
-    image: https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/9.jpg
+    tips: gaoshoulailo
+    title: 博客内容
+    image: https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/16.jpg
     link: #https://docs.anheyu.com/
 
 # 朋友圈配置
