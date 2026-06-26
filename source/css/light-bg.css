@@ -1,0 +1,11 @@
+/* Light mode random background image — applied to #web_bg */
+[data-theme="light"] #web_bg,
+.schemeLight #web_bg {
+  background-color: #f0f0f0; /* fallback while image loads */
+  background-image: none; /* will be set by JS */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  opacity: 0.8; /* 80% opacity — shows underlying background color */
+}
