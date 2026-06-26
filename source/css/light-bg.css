@@ -1,11 +1,37 @@
-/* Light mode random background image — applied to #web_bg */
+/* ==========================================
+   亮色模式随机背景图 — Light Mode Background
+   ========================================== */
+
+/* ---------- 背景图层 (#web_bg) ---------- */
+/* 覆盖主题默认的背景色，改为随机图床图片（由 JS 设置） */
 [data-theme="light"] #web_bg,
 .schemeLight #web_bg {
-  background-color: #f0f0f0; /* fallback while image loads */
-  background-image: none; /* will be set by JS */
+  background-color: #f0f0f0;   /* 图片加载前的 fallback 色 */
+  background-image: none;       /* 由 light-bg.js 随机设置 */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  opacity: 0.8; /* 80% opacity — shows underlying background color */
+  opacity: 0.8;                 /* 图片透明度 80%，透出底层 body 背景色 */
 }
+
+
+/* ---------- 内容卡片背景半透明 ---------- */
+/* 让文章列表、侧边栏、导航栏等卡片区域半透明，透出背景图 */
+[data-theme="light"],
+.schemeLight {
+  /* 主卡片背景 — 文章列表、侧边栏小工具、导航栏、评论区等 */
+  --anzhiyu-card-bg: rgba(255, 255, 255, 0.6);
+
+  /* 卡片悬停基础类背景（.cardHover 继承此变量） */
+  --card-bg: rgba(255, 255, 255, 0.6);
+
+  /* 次要背景 — 部分卡片内部区域 */
+  --anzhiyu-secondbg: rgba(247, 249, 254, 0.6);
+
+  /* 卡片内按钮背景 */
+  --anzhiyu-card-btn-bg: rgba(237, 240, 247, 0.6);
+}
+/* 说明：rgba(255,255,255, X) 中 X 越大越不透明
+   0.75 = 25% 透明，背景图可明显透出
+   调整这个值即可控制透过程度 */
