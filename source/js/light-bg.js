@@ -1,14 +1,14 @@
 // Light mode random background image from bed chart — applied to #web_bg
 (function () {
   var images = [
-    "https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/01.webp",
-    "https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/2.webp",
-    "https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/3.webp",
-    "https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/4.webp",
-    "https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/5.webp",
-    "https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/6.webp",
-    "https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/7.webp",
-    "https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/8.webp",
+    // "https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/01.webp",
+    // "https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/2.webp",
+    // "https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/3.webp",
+    // "https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/4.webp",
+    // "https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/5.webp",
+    // "https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/6.webp",
+    // "https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/7.webp",
+    // "https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/8.webp",
     "https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/9.jpg",
     "https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/10.jpg",
     "https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/11.jpg",
@@ -17,8 +17,8 @@
     "https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/14.jpg",
     "https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/15.jpg",
     "https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/16.jpg",
-    "https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/17.jpg",
-    "https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/18.jpg",
+    // "https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/17.jpg",
+    // "https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/18.jpg",
   ];
 
   var webBg = document.getElementById("web_bg");
