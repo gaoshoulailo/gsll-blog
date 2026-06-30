@@ -1,0 +1,749 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>Hexo 博客完整部署到 GitHub 教程（Windows 版） | 糕手来咯的博客</title><meta name="keywords" content="技术分享"><meta name="author" content="糕手来咯"><meta name="copyright" content="糕手来咯"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="Hexo 博客完整部署到 GitHub 教程（Windows 版）"><meta name="application-name" content="Hexo 博客完整部署到 GitHub 教程（Windows 版）"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="Hexo 博客完整部署到 GitHub 教程（Windows 版）"><meta property="og:url" content="https://gaoshoulailo.github.io/gsll-blog/2026/05/18/Hexo-%E5%8D%9A%E5%AE%A2%E5%AE%8C%E6%95%B4%E9%83%A8%E7%BD%B2%E5%88%B0-GitHub-%E6%95%99%E7%A8%8B%EF%BC%88Windows-%E7%89%88%EF%BC%89/index.html"><meta property="og:site_name" content="糕手来咯的博客"><meta property="og:description" content="Hexo 博客完整部署到 GitHub 教程（Windows 版） 作者：gaoshoulailo博客地址：https:&amp;#x2F;&amp;#x2F;gaoshoulailo.github.io&amp;#x2F;gsll-blog适用系统：Windows创建时间：2026-05-18  目录 一、前置准备 二、创建 GitHub 仓库 三、"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/7.webp"><meta property="article:author" content="糕手来咯"><meta property="article:tag"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/7.webp"><meta name="description" content="Hexo 博客完整部署到 GitHub 教程（Windows 版） 作者：gaoshoulailo博客地址：https:&amp;#x2F;&amp;#x2F;gaoshoulailo.github.io&amp;#x2F;gsll-blog适用系统：Windows创建时间：2026-05-18  目录 一、前置准备 二、创建 GitHub 仓库 三、"><link rel="shortcut icon" href="/gsll-blog/favicon.ico"><link rel="canonical" href="https://gaoshoulailo.github.io/gsll-blog/2026/05/18/Hexo-%E5%8D%9A%E5%AE%A2%E5%AE%8C%E6%95%B4%E9%83%A8%E7%BD%B2%E5%88%B0-GitHub-%E6%95%99%E7%A8%8B%EF%BC%88Windows-%E7%89%88%EF%BC%89/"><link rel="preconnect" href="//cdn.cbd.int"/><meta name="google-site-verification" content="3gSJtsAs5OG6EFsDdAPKZ1MabLTrLAHR4BvJwEZijdA"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="40A3E43ACA29D95658C1C5C9BBA8F3EA"/><link rel="stylesheet" href="/gsll-blog/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@6.1.6/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: undefined,
+  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"local","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"xxxx","Referer":"https://xx.xx/"},
+  diytitle: {"enable":true,"leaveTitle":"w(ﾟДﾟ)w 不要走！再看看嘛！","backTitle":"♪(^∇^*)欢迎肥来！"},
+  LA51: undefined,
+  greetingBox: undefined,
+  twikooEnvId: '',
+  commentBarrageConfig:undefined,
+  music_page_default: "nav_music",
+  root: '/gsll-blog/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: true,
+  mainTone: undefined,
+  authorStatus: undefined,
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"作者: 糕手来咯","link":"链接: ","source":"来源: 糕手来咯的博客","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。","copySuccess":"复制成功，复制和转载请标注本文地址"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.2.0/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.2.0/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: '糕手来咯的博客',
+  title: 'Hexo 博客完整部署到 GitHub 教程（Windows 版）',
+  postAI: '',
+  pageFillDescription: 'Hexo 博客完整部署到 GitHub 教程（Windows 版）, 目录, 一、前置准备, 1.1 安装 Node.js, 1.2 安装 Git, 1.3 配置 Git 全局信息, 二、创建 GitHub 仓库, 三、配置 SSH 连接 GitHub(可选), 3.1 检查现有 SSH 密钥, 3.2 生成新的 SSH 密钥, 3.3 添加公钥到 GitHub, 3.4 测试 SSH 连接, 3.5 国内网络 SSH 22 端口被封的解决方案, 四、初始化 Hexo 博客, 4.1 安装 Hexo CLI, 4.2 创建博客目录, 4.3 初始化 Hexo, 4.4 本地预览, 五、下载主题并处理 .git 文件夹, 5.1 下载主题（以 Butterfly 为例）, 5.2 删除主题内的 .git 文件夹（关键步骤）, 5.3 重命名主题文件夹（可选）, 5.4 启用主题, 六、配置 Hexo 部署, 6.1 安装部署插件, 6.2 安装 Pug 渲染器（关键！易遗漏）, 6.3 编辑 _config.yml, 七、首次部署到 GitHub, 7.1 执行部署命令, 7.2 验证生成结果, 八、设置 GitHub Pages, 8.1 确认 gh-pages 分支已创建, 8.2 配置 Pages 源分支, 8.3 访问博客, 九、备份源码到 GitHub（重要）, 9.1 创建 .gitignore, 9.2 初始化并推送源码, 十、日常写作与更新流程, 10.1 新建文章, 10.2 本地预览, 10.3 部署博客（更新网站）, 10.4 备份源码, 十一、常见问题与补充事项, 十二、在其他电脑上克隆运行, 12.1 克隆源码, 12.2 安装环境, 12.3 安装依赖, 12.4 本地运行, 12.5 新电脑上的工作流程, 12.6 重要提醒, 十三、双分支结构总结, 快捷命令别名（PowerShell）博客完整部署到教程版作者博客地址适用系统创建时间目录一前置准备二创建仓库三配置连接四初始化博客五下载主题并处理文件夹六配置部署七首次部署到八设置九备份源码到十日常写作与更新流程十一常见问题与补充事项十二在其他电脑上克隆运行十三双分支结构总结一前置准备安装访问下载长期支持版本安装时全部默认一直点验证安装安装访问下载版默认安装验证安装配置全局信息你的用户名你的注册邮箱二创建仓库登录点击右上角仓库名设为公开勾选点击注意请勿创建文件你的博客访问地址将是用户名仓库名三配置连接可选本节为可选步骤但强烈建议国内开发者完成能显著提升操作的稳定性与体验检查现有密钥打开或如果看到和或和说明已有密钥可以跳过生成步骤生成新的密钥你的邮箱按使用默认保存路径提示输入密码时直接按不设置密码方便后续自动部署如果你的系统不支持使用你的邮箱添加公钥到查看公钥内容如果是文件名为复制输出的全部内容登录右上角头像左侧填写部署密钥粘贴刚才复制的公钥内容点击测试连接第一次连接会提示输入并回车成功后会显示国内网络端口被封的解决方案如果超时改用端口创建编辑文件添加以下内容同时修改部署地址为用户名仓库名四初始化博客安装创建博客目录建议在盘或盘避免盘权限问题文件名可随意本文使用示例初始化初始化后的目录结构博客全局配置文件默认主题配置项目依赖文章模板你的文章页面图片草稿已发布文章主题文件夹依赖包本地预览浏览器访问看到默认页面说明成功五下载主题并处理文件夹注意具体下载操作可参考主题页面下的下载主题以为例进入目录使用下载主题删除主题内的文件夹关键步骤问题原因主题文件夹内包含隐藏文件夹这会导致嵌套问题不允许仓库内嵌套另一个仓库父仓库无法追踪主题文件夹内的文件推送到时主题文件夹显示为灰色不可点击无法备份和更新主题文件解决方案删除文件夹删除后主题文件夹就成为普通文件夹可以被父仓库正常追踪缺点是无法通过更新主题如需更新需重新下载重命名主题文件夹可选将重命名为更短的名字启用主题编辑博客根目录的找到行修改为六配置部署安装部署插件安装渲染器关键易遗漏默认只支持模板主题需要额外安装渲染器如果不安装此插件生成的将仍然是源码导致网站无法正确显示编辑打开修改以下两处配置找到和用户名仓库名仓库名部署配置在文件最底部添加用户名仓库名必须使用地址开头这样无需每次输入密码是部署插件的默认值用于存放生成的静态网页语法严格冒号后必须有空格缩进用空格不要用七首次部署到执行部署命令或简写命令说明清理缓存和旧的生成文件生成静态网页文件到目录将内容推送到仓库的分支验证生成结果部署前检查是否正常输出应该是正常的标签如等不应该是源码看到说明部署成功八设置确认分支已创建首次部署后会自动创建分支打开仓库页面用户名仓库名点击分支下拉菜单确认能看到配置源分支进入仓库选择选择点击如果首次部署后看不到选项等待分钟刷新页面或手动在上基于创建分支访问博客等待分钟后访问用户名仓库名九备份源码到重要只推送了生成的静态网页你的源码文章配置文件主题设置需要单独备份到分支创建在下创建文件和是生成的文件不需要备份初始化并推送源码用户名仓库名如果推送失败因为仓库已有十日常写作与更新流程新建文章文章标题文章会创建在文章标题用编辑本地预览部署博客更新网站备份源码新增文章十一常见问题与补充事项问题解决方案只有选项首次后会自动创建分支等待分钟刷新页面即可看到连接失败超时国内网络可能封端口在添加端口配置见节语法错误中冒号后必须有空格缩进用两个空格不能用主题样式不生效确认中名字和下的文件夹名完全一致页面显示源码未安装执行图片路径图片放文章中引用自定义域名在下创建文件无后缀内容写你的域名版本需要建议用版本权限问题项目放在盘或盘避免盘等目录提示权限错误确认密钥已添加到且使用开头的地址缓存清理修改主题或配置后如果页面没变化务必执行主题无法更新因为删除了如需更新主题需重新下载覆盖更新补充说明十二在其他电脑上克隆运行克隆源码创建项目目录克隆源码分支用户名仓库名进入目录如果新电脑没有配置先用克隆用户名仓库名安装环境确保已安装和见第一节安装依赖这会读取自动安装所有依赖包括等本地运行浏览器访问新电脑上的工作流程写作文章标题预览部署到网站备份源码新增文章重要提醒注意说明不要克隆分支那是生成的静态网页不是源码无法编辑主题文件会一起克隆你之前删除了所以主题作为普通文件夹随源码备份不推送到靠在新电脑上重新安装更新补充说明十三双分支结构总结分支内容谁推送用途源码文章配置主题备份源码多电脑同步生成的静态网页展示快捷命令别名在配置文件中添加以后只需输入即可一键部署本教程基于主题系统实践排版',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-06-30 09:16:49',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/gsll-blog/css/light-bg.css"><meta name="generator" content="Hexo 8.1.2"></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="/gsll-blog/img/avatar.jpg"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><a id="site-name" href="/gsll-blog/" accesskey="h"><div class="title">糕手来咯的博客</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/gsll-blog/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/gsll-blog/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/gsll-blog/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/gsll-blog/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/gsll-blog/fcircle/"><i class="anzhiyufont anzhiyu-icon-artstation faa-tada" style="font-size: 0.9em;"></i><span> 朋友圈</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/gsll-blog/comments/"><i class="anzhiyufont anzhiyu-icon-envelope faa-tada" style="font-size: 0.9em;"></i><span> 留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/gsll-blog/music/"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/gsll-blog/bangumis/"><i class="anzhiyufont anzhiyu-icon-bilibili faa-tada" style="font-size: 0.9em;"></i><span> 追番页</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/gsll-blog/album/"><i class="anzhiyufont anzhiyu-icon-images faa-tada" style="font-size: 0.9em;"></i><span> 相册集</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/gsll-blog/air-conditioner/"><i class="anzhiyufont anzhiyu-icon-fan faa-tada" style="font-size: 0.9em;"></i><span> 小空调</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/gsll-blog/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/gsll-blog/essay/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 闲言碎语</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" target="_blank"><img class="post-qr-code-img" alt="微信" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" target="_blank"><img class="post-qr-code-img" alt="支付宝" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/gsll-blog/tags/Android-Reverse/" style="font-size: 1.05rem;">Android Reverse<sup>3</sup></a><a href="/gsll-blog/tags/Web-Reverse/" style="font-size: 1.05rem;">Web Reverse<sup>1</sup></a><a href="/gsll-blog/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" style="font-size: 1.05rem;">技术分享<sup>5</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/gsll-blog/archives/2026/06/"><span class="card-archive-list-date">六月 2026</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">3</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/gsll-blog/archives/2026/05/"><span class="card-archive-list-date">五月 2026</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/gsll-blog/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" itemprop="url">技术分享</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/gsll-blog/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>技术分享</span></a></span></div></div><h1 class="post-title" itemprop="name headline">Hexo 博客完整部署到 GitHub 教程（Windows 版）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2026-05-18T02:30:00.000Z" title="发表于 2026-05-18 10:30:00">2026-05-18</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2026-06-30T01:16:49.037Z" title="更新于 2026-06-30 09:16:49">2026-06-30</time></span></div><div class="meta-secondline"><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为交界地"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>交界地</span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/7.webp"></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="https://gaoshoulailo.github.io/gsll-blog/2026/05/18/Hexo-%E5%8D%9A%E5%AE%A2%E5%AE%8C%E6%95%B4%E9%83%A8%E7%BD%B2%E5%88%B0-GitHub-%E6%95%99%E7%A8%8B%EF%BC%88Windows-%E7%89%88%EF%BC%89/"><header><a class="post-meta-categories" href="/gsll-blog/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" itemprop="url">技术分享</a><a href="/gsll-blog/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" tabindex="-1" itemprop="url">技术分享</a><h1 id="CrawlerTitle" itemprop="name headline">Hexo 博客完整部署到 GitHub 教程（Windows 版）</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">糕手来咯</span><time itemprop="dateCreated datePublished" datetime="2026-05-18T02:30:00.000Z" title="发表于 2026-05-18 10:30:00">2026-05-18</time><time itemprop="dateCreated datePublished" datetime="2026-06-30T01:16:49.037Z" title="更新于 2026-06-30 09:16:49">2026-06-30</time></header><h1 id="Hexo-博客完整部署到-GitHub-教程（Windows-版）"><a href="#Hexo-博客完整部署到-GitHub-教程（Windows-版）" class="headerlink" title="Hexo 博客完整部署到 GitHub 教程（Windows 版）"></a>Hexo 博客完整部署到 GitHub 教程（Windows 版）</h1><blockquote>
+<p><strong>作者</strong>：gaoshoulailo<br><strong>博客地址</strong>：<code>https://gaoshoulailo.github.io/gsll-blog</code><br><strong>适用系统</strong>：Windows<br><strong>创建时间</strong>：2026-05-18</p>
+</blockquote>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
+<li><a href="#%E4%B8%80%E5%89%8D%E7%BD%AE%E5%87%86%E5%A4%87">一、前置准备</a></li>
+<li><a href="#%E4%BA%8C%E5%88%9B%E5%BB%BA-github-%E4%BB%93%E5%BA%93">二、创建 GitHub 仓库</a></li>
+<li><a href="#%E4%B8%89%E9%85%8D%E7%BD%AE-ssh-%E8%BF%9E%E6%8E%A5-github">三、配置 SSH 连接 GitHub</a></li>
+<li><a href="#%E5%9B%9B%E5%88%9D%E5%A7%8B%E5%8C%96-hexo-%E5%8D%9A%E5%AE%A2">四、初始化 Hexo 博客</a></li>
+<li><a href="#%E4%BA%94%E4%B8%8B%E8%BD%BD%E4%B8%BB%E9%A2%98%E5%B9%B6%E5%A4%84%E7%90%86-git-%E6%96%87%E4%BB%B6%E5%A4%B9">五、下载主题并处理 .git 文件夹</a></li>
+<li><a href="#%E5%85%AD%E9%85%8D%E7%BD%AE-hexo-%E9%83%A8%E7%BD%B2">六、配置 Hexo 部署</a></li>
+<li><a href="#%E4%B8%83%E9%A6%96%E6%AC%A1%E9%83%A8%E7%BD%B2%E5%88%B0-github">七、首次部署到 GitHub</a></li>
+<li><a href="#%E5%85%AB%E8%AE%BE%E7%BD%AE-github-pages">八、设置 GitHub Pages</a></li>
+<li><a href="#%E4%B9%9D%E5%A4%87%E4%BB%BD%E6%BA%90%E7%A0%81%E5%88%B0-github">九、备份源码到 GitHub</a></li>
+<li><a href="#%E5%8D%81%E6%97%A5%E5%B8%B8%E5%86%99%E4%BD%9C%E4%B8%8E%E6%9B%B4%E6%96%B0%E6%B5%81%E7%A8%8B">十、日常写作与更新流程</a></li>
+<li><a href="#%E5%8D%81%E4%B8%80%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A1%A5%E5%85%85%E4%BA%8B%E9%A1%B9">十一、常见问题与补充事项</a></li>
+<li><a href="#%E5%8D%81%E4%BA%8C%E5%9C%A8%E5%85%B6%E4%BB%96%E7%94%B5%E8%84%91%E4%B8%8A%E5%85%8B%E9%9A%86%E8%BF%90%E8%A1%8C">十二、在其他电脑上克隆运行</a></li>
+<li><a href="#%E5%8D%81%E4%B8%89%E5%8F%8C%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84%E6%80%BB%E7%BB%93">十三、双分支结构总结</a></li>
+</ul>
+<hr>
+<h2 id="一、前置准备"><a href="#一、前置准备" class="headerlink" title="一、前置准备"></a>一、前置准备</h2><h3 id="1-1-安装-Node-js"><a href="#1-1-安装-Node-js" class="headerlink" title="1.1 安装 Node.js"></a>1.1 安装 Node.js</h3><ol>
+<li>访问 <a target="_blank" rel="noopener" href="https://nodejs.org/">nodejs.org</a></li>
+<li>下载 <strong>LTS（长期支持）版本</strong></li>
+<li>安装时全部默认，一直点 Next</li>
+<li>验证安装：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-2-安装-Git"><a href="#1-2-安装-Git" class="headerlink" title="1.2 安装 Git"></a>1.2 安装 Git</h3><ol>
+<li>访问 <a target="_blank" rel="noopener" href="https://git-scm.com/">git-scm.com</a></li>
+<li>下载 Windows 版，默认安装</li>
+<li>验证安装：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-3-配置-Git-全局信息"><a href="#1-3-配置-Git-全局信息" class="headerlink" title="1.3 配置 Git 全局信息"></a>1.3 配置 Git 全局信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;你的GitHub用户名&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;你的GitHub注册邮箱&quot;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="二、创建-GitHub-仓库"><a href="#二、创建-GitHub-仓库" class="headerlink" title="二、创建 GitHub 仓库"></a>二、创建 GitHub 仓库</h2><ol>
+<li>登录 <a target="_blank" rel="noopener" href="https://github.com/">GitHub</a>，点击右上角 <strong>New repository</strong></li>
+<li><strong>Repository name</strong>：<code>仓库名</code></li>
+<li>设为 <strong>Public（公开）</strong></li>
+<li>勾选 <strong>Add a README file</strong></li>
+<li>点击 <strong>Create repository</strong><ul>
+<li><input disabled="" type="checkbox"> <strong>注意</strong>：请勿创建 README.md 文件</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>你的博客访问地址将是：<code>https://用户名.github.io/仓库名</code></p>
+</blockquote>
+<hr>
+<h2 id="三、配置-SSH-连接-GitHub-可选"><a href="#三、配置-SSH-连接-GitHub-可选" class="headerlink" title="三、配置 SSH 连接 GitHub(可选)"></a>三、配置 SSH 连接 GitHub(可选)</h2><p>本节为可选步骤，但强烈建议国内开发者完成，能显著提升 Git 操作的稳定性与体验。</p>
+<h3 id="3-1-检查现有-SSH-密钥"><a href="#3-1-检查现有-SSH-密钥" class="headerlink" title="3.1 检查现有 SSH 密钥"></a>3.1 检查现有 SSH 密钥</h3><p>打开 <strong>PowerShell</strong> 或 <strong>Git Bash</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> ~/.ssh</span><br></pre></td></tr></table></figure>
+
+<p>如果看到 <code>id_rsa</code> 和 <code>id_rsa.pub</code>（或 <code>id_ed25519</code> 和 <code>id_ed25519.pub</code>），说明已有密钥，可以跳过生成步骤。</p>
+<h3 id="3-2-生成新的-SSH-密钥"><a href="#3-2-生成新的-SSH-密钥" class="headerlink" title="3.2 生成新的 SSH 密钥"></a>3.2 生成新的 SSH 密钥</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t ed25519 -C <span class="string">&quot;你的GitHub邮箱&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>按 <strong>Enter</strong> 使用默认保存路径</li>
+<li>提示输入密码时，直接按 <strong>Enter</strong>（不设置密码，方便后续自动部署）</li>
+</ul>
+<blockquote>
+<p>如果你的系统不支持 <code>ed25519</code>，使用 RSA：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -b 4096 -C <span class="string">&quot;你的GitHub邮箱&quot;</span></span><br></pre></td></tr></table></figure></blockquote>
+<h3 id="3-3-添加公钥到-GitHub"><a href="#3-3-添加公钥到-GitHub" class="headerlink" title="3.3 添加公钥到 GitHub"></a>3.3 添加公钥到 GitHub</h3><ol>
+<li>查看公钥内容：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> ~/.ssh/id_ed25519.pub</span><br></pre></td></tr></table></figure>
+
+<p>（如果是 RSA，文件名为 <code>id_rsa.pub</code>）</p>
+<ol start="2">
+<li>复制输出的全部内容</li>
+<li>登录 GitHub → 右上角头像 → <strong>Settings</strong> → 左侧 <strong>SSH and GPG keys</strong> → <strong>New SSH key</strong></li>
+<li><strong>Title</strong> 填写：Hexo 部署密钥</li>
+<li><strong>Key</strong> 粘贴刚才复制的公钥内容</li>
+<li>点击 <strong>Add SSH key</strong></li>
+</ol>
+<h3 id="3-4-测试-SSH-连接"><a href="#3-4-测试-SSH-连接" class="headerlink" title="3.4 测试 SSH 连接"></a>3.4 测试 SSH 连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+
+<p>第一次连接会提示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Are you sure you want to continue connecting (yes/no/[fingerprint])?</span><br></pre></td></tr></table></figure>
+
+<p>输入 <code>yes</code> 并回车。</p>
+<p>成功后会显示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hi gaoshoulailo! You&#x27;ve successfully authenticated...</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-5-国内网络-SSH-22-端口被封的解决方案"><a href="#3-5-国内网络-SSH-22-端口被封的解决方案" class="headerlink" title="3.5 国内网络 SSH 22 端口被封的解决方案"></a>3.5 国内网络 SSH 22 端口被封的解决方案</h3><p>如果 <code>ssh -T git@github.com</code> 超时，改用 443 端口：</p>
+<ol>
+<li>创建&#x2F;编辑 <code>~/.ssh/config</code> 文件：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">notepad ~/.ssh/config</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>添加以下内容：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">    HostName ssh.github.com</span><br><span class="line">    Port 443</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>同时修改 Hexo 部署地址为：</li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">repo:</span> <span class="string">ssh://git@ssh.github.com:443/用户名/仓库名.git</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="四、初始化-Hexo-博客"><a href="#四、初始化-Hexo-博客" class="headerlink" title="四、初始化 Hexo 博客"></a>四、初始化 Hexo 博客</h2><h3 id="4-1-安装-Hexo-CLI"><a href="#4-1-安装-Hexo-CLI" class="headerlink" title="4.1 安装 Hexo CLI"></a>4.1 安装 Hexo CLI</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-2-创建博客目录"><a href="#4-2-创建博客目录" class="headerlink" title="4.2 创建博客目录"></a>4.2 创建博客目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 建议在 D 盘或 F 盘，避免 C 盘权限问题 文件名可随意，本文使用blog示例</span></span><br><span class="line"><span class="built_in">cd</span> F:\</span><br><span class="line"><span class="built_in">mkdir</span> blog</span><br><span class="line"><span class="built_in">cd</span> blog</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-3-初始化-Hexo"><a href="#4-3-初始化-Hexo" class="headerlink" title="4.3 初始化 Hexo"></a>4.3 初始化 Hexo</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo init .</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+<p>初始化后的目录结构：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">blog/</span><br><span class="line">├── _config.yml              # 博客全局配置文件</span><br><span class="line">├── _config.landscape.yml    # 默认主题配置</span><br><span class="line">├── package.json             # 项目依赖</span><br><span class="line">├── scaffolds/               # 文章模板</span><br><span class="line">├── source/                  # 你的文章、页面、图片</span><br><span class="line">│   ├── _drafts/             # 草稿</span><br><span class="line">│   └── _posts/             # 已发布文章</span><br><span class="line">├── themes/                  # 主题文件夹</span><br><span class="line">└── node_modules/            # 依赖包</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-4-本地预览"><a href="#4-4-本地预览" class="headerlink" title="4.4 本地预览"></a>4.4 本地预览</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+
+<p>浏览器访问 <code>http://localhost:4000</code>，看到默认页面说明成功。</p>
+<hr>
+<h2 id="五、下载主题并处理-git-文件夹"><a href="#五、下载主题并处理-git-文件夹" class="headerlink" title="五、下载主题并处理 .git 文件夹"></a>五、下载主题并处理 .git 文件夹</h2><ul>
+<li><input disabled="" type="checkbox"> <strong>注意</strong>：具体下载操作可参考主题GitHub页面下的README.md</li>
+</ul>
+<h3 id="5-1-下载主题（以-Butterfly-为例）"><a href="#5-1-下载主题（以-Butterfly-为例）" class="headerlink" title="5.1 下载主题（以 Butterfly 为例）"></a>5.1 下载主题（以 Butterfly 为例）</h3><p>进入 <code>themes</code> 目录，使用 <code>git clone</code> 下载主题：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> F:\blog\themes</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/jerryc127/hexo-theme-butterfly.git</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-2-删除主题内的-git-文件夹（关键步骤）"><a href="#5-2-删除主题内的-git-文件夹（关键步骤）" class="headerlink" title="5.2 删除主题内的 .git 文件夹（关键步骤）"></a>5.2 删除主题内的 .git 文件夹（关键步骤）</h3><p><strong>问题原因</strong>：主题文件夹内包含 <code>.git</code> 隐藏文件夹，这会导致 Git 嵌套问题：</p>
+<ul>
+<li>Git 不允许仓库内嵌套另一个 Git 仓库</li>
+<li>父仓库无法追踪主题文件夹内的文件</li>
+<li>推送到 GitHub 时主题文件夹显示为灰色不可点击</li>
+<li>无法备份和更新主题文件</li>
+</ul>
+<p><strong>解决方案</strong>：删除 <code>.git</code> 文件夹</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> F:\blog\themes\hexo-theme-butterfly</span><br><span class="line"><span class="built_in">rm</span> -rf .git</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>删除后，主题文件夹就成为普通文件夹，可以被父仓库正常追踪。缺点是<strong>无法通过 <code>git pull</code> 更新主题</strong>，如需更新需重新下载。</p>
+</blockquote>
+<h3 id="5-3-重命名主题文件夹（可选）"><a href="#5-3-重命名主题文件夹（可选）" class="headerlink" title="5.3 重命名主题文件夹（可选）"></a>5.3 重命名主题文件夹（可选）</h3><p>将 <code>hexo-theme-butterfly</code> 重命名为更短的名字：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> F:\blog\themes</span><br><span class="line"><span class="built_in">mv</span> hexo-theme-butterfly butterfly</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-4-启用主题"><a href="#5-4-启用主题" class="headerlink" title="5.4 启用主题"></a>5.4 启用主题</h3><p>编辑博客根目录的 <code>_config.yml</code>，找到 <code>theme:</code> 行，修改为：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">butterfly</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="六、配置-Hexo-部署"><a href="#六、配置-Hexo-部署" class="headerlink" title="六、配置 Hexo 部署"></a>六、配置 Hexo 部署</h2><h3 id="6-1-安装部署插件"><a href="#6-1-安装部署插件" class="headerlink" title="6.1 安装部署插件"></a>6.1 安装部署插件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> F:\blog</span><br><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-2-安装-Pug-渲染器（关键！易遗漏）"><a href="#6-2-安装-Pug-渲染器（关键！易遗漏）" class="headerlink" title="6.2 安装 Pug 渲染器（关键！易遗漏）"></a>6.2 安装 Pug 渲染器（关键！易遗漏）</h3><p>Hexo 默认只支持 EJS 模板，Pug 主题需要额外安装渲染器：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-renderer-pug --save</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>如果不安装此插件，<code>hexo generate</code> 生成的 <code>public/index.html</code> 将仍然是 Pug 源码，导致网站无法正确显示。</p>
+</blockquote>
+<h3 id="6-3-编辑-config-yml"><a href="#6-3-编辑-config-yml" class="headerlink" title="6.3 编辑 _config.yml"></a>6.3 编辑 _config.yml</h3><p>打开 <code>F:\blog\_config.yml</code>，修改以下两处：</p>
+<p><strong>① URL 配置</strong>（找到 <code>url</code> 和 <code>root</code>）：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">url:</span> <span class="string">https://用户名.github.io/仓库名</span></span><br><span class="line"><span class="attr">root:</span> <span class="string">/仓库名/</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>② 部署配置</strong>（在文件最底部添加）：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@github.com:用户名/仓库名.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">gh-pages</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<ul>
+<li>必须使用 <strong>SSH 地址</strong>（<code>git@github.com:</code> 开头），这样无需每次输入密码</li>
+<li><code>branch: gh-pages</code> 是 Hexo 部署插件的默认值，用于存放生成的静态网页</li>
+<li>YAML 语法严格：冒号后必须有空格，缩进用空格不要用 Tab</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="七、首次部署到-GitHub"><a href="#七、首次部署到-GitHub" class="headerlink" title="七、首次部署到 GitHub"></a>七、首次部署到 GitHub</h2><h3 id="7-1-执行部署命令"><a href="#7-1-执行部署命令" class="headerlink" title="7.1 执行部署命令"></a>7.1 执行部署命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo generate &amp;&amp; hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>或简写：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo cl &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+
+<p>命令说明：</p>
+<ul>
+<li><code>hexo clean</code>：清理缓存和旧的生成文件</li>
+<li><code>hexo generate</code>（<code>hexo g</code>）：生成静态网页文件到 <code>public/</code> 目录</li>
+<li><code>hexo deploy</code>（<code>hexo d</code>）：将 <code>public/</code> 内容推送到 GitHub 仓库的 <code>gh-pages</code> 分支</li>
+</ul>
+<h3 id="7-2-验证生成结果"><a href="#7-2-验证生成结果" class="headerlink" title="7.2 验证生成结果"></a>7.2 验证生成结果</h3><p>部署前检查 <code>public/index.html</code> 是否正常：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">type</span> public\index.html</span><br></pre></td></tr></table></figure>
+
+<p>输出应该是正常的 HTML 标签（如 <code>&lt;html&gt;</code>、<code>&lt;div&gt;</code> 等），<strong>不应该是 Pug 源码</strong>。</p>
+<p>看到 <code>Deploy done: git</code> 说明部署成功。</p>
+<hr>
+<h2 id="八、设置-GitHub-Pages"><a href="#八、设置-GitHub-Pages" class="headerlink" title="八、设置 GitHub Pages"></a>八、设置 GitHub Pages</h2><h3 id="8-1-确认-gh-pages-分支已创建"><a href="#8-1-确认-gh-pages-分支已创建" class="headerlink" title="8.1 确认 gh-pages 分支已创建"></a>8.1 确认 gh-pages 分支已创建</h3><p>Hexo 首次部署后会自动创建 <code>gh-pages</code> 分支。</p>
+<ol>
+<li>打开仓库页面 <code>github.com/用户名/仓库名</code></li>
+<li>点击分支下拉菜单，确认能看到 <code>gh-pages</code></li>
+</ol>
+<h3 id="8-2-配置-Pages-源分支"><a href="#8-2-配置-Pages-源分支" class="headerlink" title="8.2 配置 Pages 源分支"></a>8.2 配置 Pages 源分支</h3><ol>
+<li>进入仓库 <strong>Settings</strong> → <strong>Pages</strong></li>
+<li><strong>Source</strong> 选择 <code>Deploy from a branch</code></li>
+<li><strong>Branch</strong> 选择 <code>gh-pages</code> &#x2F; <code>(root)</code></li>
+<li>点击 <strong>Save</strong></li>
+</ol>
+<blockquote>
+<p>如果首次部署后看不到 <code>gh-pages</code> 选项，等待 1-2 分钟刷新页面，或手动在 GitHub 上基于 <code>main</code> 创建 <code>gh-pages</code> 分支。</p>
+</blockquote>
+<h3 id="8-3-访问博客"><a href="#8-3-访问博客" class="headerlink" title="8.3 访问博客"></a>8.3 访问博客</h3><p>等待 1-3 分钟后，访问：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://用户名.github.io/仓库名</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="九、备份源码到-GitHub（重要）"><a href="#九、备份源码到-GitHub（重要）" class="headerlink" title="九、备份源码到 GitHub（重要）"></a>九、备份源码到 GitHub（重要）</h2><p><code>hexo deploy</code> 只推送了<strong>生成的静态网页</strong>，你的<strong>源码</strong>（文章 Markdown、配置文件、主题设置）需要单独备份到 <code>main</code> 分支。</p>
+<h3 id="9-1-创建-gitignore"><a href="#9-1-创建-gitignore" class="headerlink" title="9.1 创建 .gitignore"></a>9.1 创建 .gitignore</h3><p>在 <code>F:\gsll-blog</code> 下创建 <code>.gitignore</code> 文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.DS_Store</span><br><span class="line">Thumbs.db</span><br><span class="line">db.json</span><br><span class="line">*.log</span><br><span class="line">node_modules/</span><br><span class="line">public/</span><br><span class="line">.deploy*/</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>public/</code> 和 <code>.deploy*/</code> 是 Hexo 生成的文件，不需要备份。</p>
+</blockquote>
+<h3 id="9-2-初始化并推送源码"><a href="#9-2-初始化并推送源码" class="headerlink" title="9.2 初始化并推送源码"></a>9.2 初始化并推送源码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> F:\blog</span><br><span class="line">git init</span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;init: hexo blog source&quot;</span></span><br><span class="line">git branch -M main</span><br><span class="line">git remote add origin git@github.com:用户名/仓库名.git</span><br></pre></td></tr></table></figure>
+
+<p>如果推送失败（因为仓库已有 README）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git pull origin main --rebase --allow-unrelated-histories</span><br><span class="line">git push -u origin main</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="十、日常写作与更新流程"><a href="#十、日常写作与更新流程" class="headerlink" title="十、日常写作与更新流程"></a>十、日常写作与更新流程</h2><h3 id="10-1-新建文章"><a href="#10-1-新建文章" class="headerlink" title="10.1 新建文章"></a>10.1 新建文章</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="string">&quot;文章标题&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>文章会创建在 <code>source/_posts/文章标题.md</code>，用 Markdown 编辑。</p>
+<h3 id="10-2-本地预览"><a href="#10-2-本地预览" class="headerlink" title="10.2 本地预览"></a>10.2 本地预览</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+
+<h3 id="10-3-部署博客（更新网站）"><a href="#10-3-部署博客（更新网站）" class="headerlink" title="10.3 部署博客（更新网站）"></a>10.3 部署博客（更新网站）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+
+<h3 id="10-4-备份源码"><a href="#10-4-备份源码" class="headerlink" title="10.4 备份源码"></a>10.4 备份源码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;update: 新增文章&quot;</span></span><br><span class="line">git push origin main</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="十一、常见问题与补充事项"><a href="#十一、常见问题与补充事项" class="headerlink" title="十一、常见问题与补充事项"></a>十一、常见问题与补充事项</h2><table>
+<thead>
+<tr>
+<th>问题</th>
+<th>解决方案</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>GitHub Pages 只有 main 选项</strong></td>
+<td>首次 <code>hexo d</code> 后，Hexo 会自动创建 <code>gh-pages</code> 分支。等待 1-2 分钟刷新页面即可看到。</td>
+</tr>
+<tr>
+<td><strong>SSH 连接失败&#x2F;超时</strong></td>
+<td>国内网络可能封 22 端口。在 <code>~/.ssh/config</code> 添加 443 端口配置（见 3.5 节）。</td>
+</tr>
+<tr>
+<td><strong>YAML 语法错误</strong></td>
+<td><code>_config.yml</code> 中冒号后必须有空格，缩进用两个空格，不能用 Tab。</td>
+</tr>
+<tr>
+<td><strong>主题样式不生效</strong></td>
+<td>确认 <code>_config.yml</code> 中 <code>theme:</code> 名字和 <code>themes/</code> 下的文件夹名完全一致。</td>
+</tr>
+<tr>
+<td><strong>页面显示 Pug 源码</strong></td>
+<td>未安装 <code>hexo-renderer-pug</code>，执行 <code>npm install hexo-renderer-pug --save</code>。</td>
+</tr>
+<tr>
+<td><strong>图片路径</strong></td>
+<td>图片放 <code>source/images/</code>，文章中引用：<code>![](/gsll-blog/images/pic.jpg)</code>。</td>
+</tr>
+<tr>
+<td><strong>自定义域名</strong></td>
+<td>在 <code>source/</code> 下创建 <code>CNAME</code> 文件（无后缀），内容写你的域名。</td>
+</tr>
+<tr>
+<td><strong>Node.js 版本</strong></td>
+<td>Hexo 5.x+ 需要 Node.js 14+，建议用 LTS 版本。</td>
+</tr>
+<tr>
+<td><strong>Windows 权限问题</strong></td>
+<td>项目放在 D 盘或 F 盘，避免 C 盘 Program Files 等目录。</td>
+</tr>
+<tr>
+<td><strong>hexo d 提示权限错误</strong></td>
+<td>确认 SSH 密钥已添加到 GitHub，且使用 <code>git@github.com</code> 开头的地址。</td>
+</tr>
+<tr>
+<td><strong>缓存清理</strong></td>
+<td>修改主题或配置后如果页面没变化，务必执行 <code>hexo clean</code>。</td>
+</tr>
+<tr>
+<td><strong>主题无法更新</strong></td>
+<td>因为删除了 <code>.git</code>，如需更新主题需重新下载覆盖。</td>
+</tr>
+</tbody></table>
+<hr>
+<blockquote>
+<p><strong>更新补充说明</strong>（2026-05-19） </p>
+</blockquote>
+<h2 id="十二、在其他电脑上克隆运行"><a href="#十二、在其他电脑上克隆运行" class="headerlink" title="十二、在其他电脑上克隆运行"></a>十二、在其他电脑上克隆运行</h2><h3 id="12-1-克隆源码"><a href="#12-1-克隆源码" class="headerlink" title="12.1 克隆源码"></a>12.1 克隆源码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建项目目录</span></span><br><span class="line"><span class="built_in">mkdir</span> F:\projects</span><br><span class="line"><span class="built_in">cd</span> F:\projects</span><br><span class="line"></span><br><span class="line"><span class="comment"># 克隆源码（main 分支）</span></span><br><span class="line">git <span class="built_in">clone</span> git@github.com:用户名/仓库名.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 进入目录</span></span><br><span class="line"><span class="built_in">cd</span> gsll-blog</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>如果新电脑没有配置 SSH，先用 HTTPS 克隆：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/用户名/仓库名.git</span><br></pre></td></tr></table></figure></blockquote>
+<h3 id="12-2-安装环境"><a href="#12-2-安装环境" class="headerlink" title="12.2 安装环境"></a>12.2 安装环境</h3><p>确保已安装 Node.js 和 Git（见第一节）。</p>
+<h3 id="12-3-安装依赖"><a href="#12-3-安装依赖" class="headerlink" title="12.3 安装依赖"></a>12.3 安装依赖</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> F:\projects\blog</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+<p>这会读取 <code>package.json</code>，自动安装所有依赖（包括 <code>hexo</code>、<code>hexo-deployer-git</code>、<code>hexo-renderer-pug</code> 等）。</p>
+<h3 id="12-4-本地运行"><a href="#12-4-本地运行" class="headerlink" title="12.4 本地运行"></a>12.4 本地运行</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+
+<p>浏览器访问 <code>http://localhost:4000</code>。</p>
+<h3 id="12-5-新电脑上的工作流程"><a href="#12-5-新电脑上的工作流程" class="headerlink" title="12.5 新电脑上的工作流程"></a>12.5 新电脑上的工作流程</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 写作</span></span><br><span class="line">hexo new <span class="string">&quot;文章标题&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 预览</span></span><br><span class="line">hexo server</span><br><span class="line"></span><br><span class="line"><span class="comment"># 部署到网站</span></span><br><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br><span class="line"></span><br><span class="line"><span class="comment"># 备份源码</span></span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;update: 新增文章&quot;</span></span><br><span class="line">git push origin main</span><br></pre></td></tr></table></figure>
+
+<h3 id="12-6-重要提醒"><a href="#12-6-重要提醒" class="headerlink" title="12.6 重要提醒"></a>12.6 重要提醒</h3><table>
+<thead>
+<tr>
+<th>注意</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>不要克隆 gh-pages 分支</strong></td>
+<td>那是生成的静态网页，不是源码，无法编辑。</td>
+</tr>
+<tr>
+<td><strong>主题文件会一起克隆</strong></td>
+<td>你之前删除了 <code>.git</code>，所以主题作为普通文件夹随源码备份。</td>
+</tr>
+<tr>
+<td><strong>node_modules 不推送到 GitHub</strong></td>
+<td>靠 <code>package.json</code> 在新电脑上重新安装。</td>
+</tr>
+</tbody></table>
+<hr>
+<blockquote>
+<p><strong>更新补充说明</strong>（2026-05-19） </p>
+</blockquote>
+<h2 id="十三、双分支结构总结"><a href="#十三、双分支结构总结" class="headerlink" title="十三、双分支结构总结"></a>十三、双分支结构总结</h2><table>
+<thead>
+<tr>
+<th>分支</th>
+<th>内容</th>
+<th>谁推送</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>main</code></td>
+<td>Hexo 源码（文章、配置、主题）</td>
+<td><code>git push</code></td>
+<td>备份源码，多电脑同步</td>
+</tr>
+<tr>
+<td><code>gh-pages</code></td>
+<td>生成的静态网页（HTML&#x2F;CSS&#x2F;JS）</td>
+<td><code>hexo d</code></td>
+<td>GitHub Pages 展示</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="快捷命令别名（PowerShell）"><a href="#快捷命令别名（PowerShell）" class="headerlink" title="快捷命令别名（PowerShell）"></a>快捷命令别名（PowerShell）</h2><p>在 PowerShell 配置文件（<code>notepad $PROFILE</code>）中添加：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hexo-deploy</span></span> &#123; hexo clean; hexo generate; hexo deploy &#125;</span><br><span class="line"><span class="built_in">Set-Alias</span> <span class="literal">-Name</span> hd <span class="literal">-Value</span> hexo<span class="literal">-deploy</span></span><br></pre></td></tr></table></figure>
+
+<p>以后只需输入 <code>hd</code> 即可一键部署。</p>
+<hr>
+<blockquote>
+<p>本教程基于 Hexo + GitHub Pages + Butterfly 主题，Windows 系统实践+AI排版。</p>
+</blockquote>
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/gsll-blog/" title="头像"><img class="post-copyright__author_img_back" src="/gsll-blog/img/avatar.jpg" title="头像" alt="头像"><img class="post-copyright__author_img_front" src="/gsll-blog/img/avatar.jpg" title="头像" alt="头像"></a><div class="post-copyright__author_name">糕手来咯</div><div class="post-copyright__author_desc">分享技术，记录生活。</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="https://gaoshoulailo.github.io/gsll-blog/2026/05/18/Hexo-%E5%8D%9A%E5%AE%A2%E5%AE%8C%E6%95%B4%E9%83%A8%E7%BD%B2%E5%88%B0-GitHub-%E6%95%99%E7%A8%8B%EF%BC%88Windows-%E7%89%88%EF%BC%89/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('https://gaoshoulailo.github.io/gsll-blog/2026/05/18/Hexo-%E5%8D%9A%E5%AE%A2%E5%AE%8C%E6%95%B4%E9%83%A8%E7%BD%B2%E5%88%B0-GitHub-%E6%95%99%E7%A8%8B%EF%BC%88Windows-%E7%89%88%EF%BC%89/')">Hexo 博客完整部署到 GitHub 教程（Windows 版）</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"><div class="post-reward" onclick="anzhiyu.addRewardMask()"><div class="reward-button button--animated" title="赞赏作者"><i class="anzhiyufont anzhiyu-icon-hand-heart-fill"></i>打赏作者</div><div class="reward-main"><div class="reward-all"><span class="reward-title">感谢你赐予我前进的力量</span><ul class="reward-group"><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" target="_blank"><img class="post-qr-code-img" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" target="_blank"><img class="post-qr-code-img" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul><a class="reward-main-btn" href="/about/#about-reward" target="_blank"><div class="reward-text">赞赏者名单</div><div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></div></div></div><div id="quit-box" onclick="anzhiyu.removeRewardMask()" style="display: none"></div><div class="reward-link mode"><a class="reward-link-button" href="/gsll-blog/wechat/"><i class="anzhiyufont anzhiyu-icon-plant-fill"></i>运营模式与责任</a></div></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="https://gaoshoulailo.github.io/gsll-blog/2026/05/18/Hexo-%E5%8D%9A%E5%AE%A2%E5%AE%8C%E6%95%B4%E9%83%A8%E7%BD%B2%E5%88%B0-GitHub-%E6%95%99%E7%A8%8B%EF%BC%88Windows-%E7%89%88%EF%BC%89/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=Hexo 博客完整部署到 GitHub 教程（Windows 版）&amp;url=https://gaoshoulailo.github.io/gsll-blog/2026/05/18/Hexo-%E5%8D%9A%E5%AE%A2%E5%AE%8C%E6%95%B4%E9%83%A8%E7%BD%B2%E5%88%B0-GitHub-%E6%95%99%E7%A8%8B%EF%BC%88Windows-%E7%89%88%EF%BC%89/&amp;pic=https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/7.webp" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><script>function copyCurrentPageUrl() {
+  var currentPageUrl = window.location.href;
+  var input = document.createElement("input");
+  input.setAttribute("value", currentPageUrl);
+  document.body.appendChild(input);
+  input.select();
+  input.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  document.body.removeChild(input);
+}</script><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="copyCurrentPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://gaoshoulailo.github.io/gsll-blog" target="_blank">糕手来咯的博客</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/gsll-blog/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>技术分享<span class="tagsPageCount">5</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/15.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/gsll-blog/2026/05/28/Frida_Java_perform_%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF%E6%8E%92%E6%9F%A5%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88_%E4%BC%98%E5%8C%96%E7%89%88/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/8.webp" onerror="onerror=null;src='/gsll-blog/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Pixel 6 + Android 15 Frida `Java.perform()` TypeError: not a function 解决方案</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>喜欢这篇文章的人也看了</span></div><div class="relatedPosts-list"><div><a href="/gsll-blog/2026/05/28/Frida_Java_perform_%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF%E6%8E%92%E6%9F%A5%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88_%E4%BC%98%E5%8C%96%E7%89%88/" title="Pixel 6 + Android 15 Frida &#96;Java.perform()&#96; TypeError: not a function 解决方案"><img class="cover" src="https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/8.webp" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-05-28</div><div class="title">Pixel 6 + Android 15 Frida &#96;Java.perform()&#96; TypeError: not a function 解决方案</div></div></a></div><div><a href="/gsll-blog/2026/06/22/%E6%B5%B7%E5%8D%97%E8%88%AA%E7%A9%BA%20App%20hnairSign%E7%AD%BE%E5%90%8D%E5%88%86%E6%9E%90%20Unidbg%20%E7%AE%80%E5%8D%95%E5%BA%94%E7%94%A8%E5%AE%9E%E6%88%98/" title="XX航空 App hnairSign签名分析 —— Unidbg 简单使用"><img class="cover" src="https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/15.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-06-22</div><div class="title">XX航空 App hnairSign签名分析 —— Unidbg 简单使用</div></div></a></div><div><a href="/gsll-blog/2026/06/08/%E5%87%A4%E5%87%B0%E6%96%B0%E9%97%BBAPP%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98/" title="X凰新闻 APP 逆向实战 — 绕过 libmsaoaidsec.so 反调试与签名定位"><img class="cover" src="https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/13.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-06-08</div><div class="title">X凰新闻 APP 逆向实战 — 绕过 libmsaoaidsec.so 反调试与签名定位</div></div></a></div><div><a href="/gsll-blog/2026/06/12/%E9%9B%B7%E6%B1%A0level2-%E6%8E%92%E7%89%88%E4%BC%98%E5%8C%96%E7%89%88/" title="雷池 WAF 人机验证逆向分析"><img class="cover" src="https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/14.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2026-06-12</div><div class="title">雷池 WAF 人机验证逆向分析</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="anzhiyufont anzhiyu-icon-comments"></i><span> 评论</span></div><div class="comment-randomInfo"><a onclick="anzhiyu.addRandomCommentInfo()" href="javascript:void(0)">匿名评论</a><a href="/gsll-blog/privacy" style="margin-left: 4px">隐私政策</a></div></div><div class="comment-wrap"><div><div id="giscus-wrap"></div></div></div></div><div class="comment-barrage"></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info-avatar"><img class="avatar-img" src="/gsll-blog/img/avatar.jpg" onerror="this.onerror=null;this.src='/gsll-blog/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__description">欢迎来看糕手来咯的博客,</div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/gsll-blog/"><h1 class="author-info__name">糕手来咯</h1><div class="author-info__desc">分享技术，记录生活。</div></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="https://github.com/gaoshoulailo" target="_blank" title="Github"><i class="anzhiyufont anzhiyu-icon-github"></i></a><a class="social-icon faa-parent animated-hover" href="https://space.bilibili.com/18186455" target="_blank" title="BiliBili"><i class="anzhiyufont anzhiyu-icon-bilibili"></i></a></div></div></div></div><div class="card-widget anzhiyu-right-widget" id="card-wechat" onclick="null"><div id="flip-wrapper"><div id="flip-content"><div class="face" style="background: url(https://bu.dusays.com/2023/01/13/63c02edf44033.png) center center / 100% no-repeat"></div><div class="back face" style="background: url(https://bu.dusays.com/2023/05/13/645fa415e8694.png) center center / 100% no-repeat"></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hexo-%E5%8D%9A%E5%AE%A2%E5%AE%8C%E6%95%B4%E9%83%A8%E7%BD%B2%E5%88%B0-GitHub-%E6%95%99%E7%A8%8B%EF%BC%88Windows-%E7%89%88%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">Hexo 博客完整部署到 GitHub 教程（Windows 版）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-number">1.1.</span> <span class="toc-text">目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%89%8D%E7%BD%AE%E5%87%86%E5%A4%87"><span class="toc-number">1.2.</span> <span class="toc-text">一、前置准备</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E5%AE%89%E8%A3%85-Node-js"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.1 安装 Node.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E5%AE%89%E8%A3%85-Git"><span class="toc-number">1.2.2.</span> <span class="toc-text">1.2 安装 Git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E9%85%8D%E7%BD%AE-Git-%E5%85%A8%E5%B1%80%E4%BF%A1%E6%81%AF"><span class="toc-number">1.2.3.</span> <span class="toc-text">1.3 配置 Git 全局信息</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%88%9B%E5%BB%BA-GitHub-%E4%BB%93%E5%BA%93"><span class="toc-number">1.3.</span> <span class="toc-text">二、创建 GitHub 仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E9%85%8D%E7%BD%AE-SSH-%E8%BF%9E%E6%8E%A5-GitHub-%E5%8F%AF%E9%80%89"><span class="toc-number">1.4.</span> <span class="toc-text">三、配置 SSH 连接 GitHub(可选)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E6%A3%80%E6%9F%A5%E7%8E%B0%E6%9C%89-SSH-%E5%AF%86%E9%92%A5"><span class="toc-number">1.4.1.</span> <span class="toc-text">3.1 检查现有 SSH 密钥</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E7%94%9F%E6%88%90%E6%96%B0%E7%9A%84-SSH-%E5%AF%86%E9%92%A5"><span class="toc-number">1.4.2.</span> <span class="toc-text">3.2 生成新的 SSH 密钥</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E6%B7%BB%E5%8A%A0%E5%85%AC%E9%92%A5%E5%88%B0-GitHub"><span class="toc-number">1.4.3.</span> <span class="toc-text">3.3 添加公钥到 GitHub</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E6%B5%8B%E8%AF%95-SSH-%E8%BF%9E%E6%8E%A5"><span class="toc-number">1.4.4.</span> <span class="toc-text">3.4 测试 SSH 连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-%E5%9B%BD%E5%86%85%E7%BD%91%E7%BB%9C-SSH-22-%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%B0%81%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">1.4.5.</span> <span class="toc-text">3.5 国内网络 SSH 22 端口被封的解决方案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%88%9D%E5%A7%8B%E5%8C%96-Hexo-%E5%8D%9A%E5%AE%A2"><span class="toc-number">1.5.</span> <span class="toc-text">四、初始化 Hexo 博客</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E5%AE%89%E8%A3%85-Hexo-CLI"><span class="toc-number">1.5.1.</span> <span class="toc-text">4.1 安装 Hexo CLI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E5%88%9B%E5%BB%BA%E5%8D%9A%E5%AE%A2%E7%9B%AE%E5%BD%95"><span class="toc-number">1.5.2.</span> <span class="toc-text">4.2 创建博客目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-%E5%88%9D%E5%A7%8B%E5%8C%96-Hexo"><span class="toc-number">1.5.3.</span> <span class="toc-text">4.3 初始化 Hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88"><span class="toc-number">1.5.4.</span> <span class="toc-text">4.4 本地预览</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E4%B8%8B%E8%BD%BD%E4%B8%BB%E9%A2%98%E5%B9%B6%E5%A4%84%E7%90%86-git-%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="toc-number">1.6.</span> <span class="toc-text">五、下载主题并处理 .git 文件夹</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-%E4%B8%8B%E8%BD%BD%E4%B8%BB%E9%A2%98%EF%BC%88%E4%BB%A5-Butterfly-%E4%B8%BA%E4%BE%8B%EF%BC%89"><span class="toc-number">1.6.1.</span> <span class="toc-text">5.1 下载主题（以 Butterfly 为例）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-%E5%88%A0%E9%99%A4%E4%B8%BB%E9%A2%98%E5%86%85%E7%9A%84-git-%E6%96%87%E4%BB%B6%E5%A4%B9%EF%BC%88%E5%85%B3%E9%94%AE%E6%AD%A5%E9%AA%A4%EF%BC%89"><span class="toc-number">1.6.2.</span> <span class="toc-text">5.2 删除主题内的 .git 文件夹（关键步骤）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-%E9%87%8D%E5%91%BD%E5%90%8D%E4%B8%BB%E9%A2%98%E6%96%87%E4%BB%B6%E5%A4%B9%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89"><span class="toc-number">1.6.3.</span> <span class="toc-text">5.3 重命名主题文件夹（可选）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-%E5%90%AF%E7%94%A8%E4%B8%BB%E9%A2%98"><span class="toc-number">1.6.4.</span> <span class="toc-text">5.4 启用主题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E9%85%8D%E7%BD%AE-Hexo-%E9%83%A8%E7%BD%B2"><span class="toc-number">1.7.</span> <span class="toc-text">六、配置 Hexo 部署</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E6%8F%92%E4%BB%B6"><span class="toc-number">1.7.1.</span> <span class="toc-text">6.1 安装部署插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-%E5%AE%89%E8%A3%85-Pug-%E6%B8%B2%E6%9F%93%E5%99%A8%EF%BC%88%E5%85%B3%E9%94%AE%EF%BC%81%E6%98%93%E9%81%97%E6%BC%8F%EF%BC%89"><span class="toc-number">1.7.2.</span> <span class="toc-text">6.2 安装 Pug 渲染器（关键！易遗漏）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3-%E7%BC%96%E8%BE%91-config-yml"><span class="toc-number">1.7.3.</span> <span class="toc-text">6.3 编辑 _config.yml</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E9%A6%96%E6%AC%A1%E9%83%A8%E7%BD%B2%E5%88%B0-GitHub"><span class="toc-number">1.8.</span> <span class="toc-text">七、首次部署到 GitHub</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1-%E6%89%A7%E8%A1%8C%E9%83%A8%E7%BD%B2%E5%91%BD%E4%BB%A4"><span class="toc-number">1.8.1.</span> <span class="toc-text">7.1 执行部署命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-%E9%AA%8C%E8%AF%81%E7%94%9F%E6%88%90%E7%BB%93%E6%9E%9C"><span class="toc-number">1.8.2.</span> <span class="toc-text">7.2 验证生成结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E8%AE%BE%E7%BD%AE-GitHub-Pages"><span class="toc-number">1.9.</span> <span class="toc-text">八、设置 GitHub Pages</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8-1-%E7%A1%AE%E8%AE%A4-gh-pages-%E5%88%86%E6%94%AF%E5%B7%B2%E5%88%9B%E5%BB%BA"><span class="toc-number">1.9.1.</span> <span class="toc-text">8.1 确认 gh-pages 分支已创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-%E9%85%8D%E7%BD%AE-Pages-%E6%BA%90%E5%88%86%E6%94%AF"><span class="toc-number">1.9.2.</span> <span class="toc-text">8.2 配置 Pages 源分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-3-%E8%AE%BF%E9%97%AE%E5%8D%9A%E5%AE%A2"><span class="toc-number">1.9.3.</span> <span class="toc-text">8.3 访问博客</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%9D%E3%80%81%E5%A4%87%E4%BB%BD%E6%BA%90%E7%A0%81%E5%88%B0-GitHub%EF%BC%88%E9%87%8D%E8%A6%81%EF%BC%89"><span class="toc-number">1.10.</span> <span class="toc-text">九、备份源码到 GitHub（重要）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#9-1-%E5%88%9B%E5%BB%BA-gitignore"><span class="toc-number">1.10.1.</span> <span class="toc-text">9.1 创建 .gitignore</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-2-%E5%88%9D%E5%A7%8B%E5%8C%96%E5%B9%B6%E6%8E%A8%E9%80%81%E6%BA%90%E7%A0%81"><span class="toc-number">1.10.2.</span> <span class="toc-text">9.2 初始化并推送源码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E3%80%81%E6%97%A5%E5%B8%B8%E5%86%99%E4%BD%9C%E4%B8%8E%E6%9B%B4%E6%96%B0%E6%B5%81%E7%A8%8B"><span class="toc-number">1.11.</span> <span class="toc-text">十、日常写作与更新流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#10-1-%E6%96%B0%E5%BB%BA%E6%96%87%E7%AB%A0"><span class="toc-number">1.11.1.</span> <span class="toc-text">10.1 新建文章</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-2-%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88"><span class="toc-number">1.11.2.</span> <span class="toc-text">10.2 本地预览</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-3-%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%EF%BC%88%E6%9B%B4%E6%96%B0%E7%BD%91%E7%AB%99%EF%BC%89"><span class="toc-number">1.11.3.</span> <span class="toc-text">10.3 部署博客（更新网站）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-4-%E5%A4%87%E4%BB%BD%E6%BA%90%E7%A0%81"><span class="toc-number">1.11.4.</span> <span class="toc-text">10.4 备份源码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%B8%80%E3%80%81%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A1%A5%E5%85%85%E4%BA%8B%E9%A1%B9"><span class="toc-number">1.12.</span> <span class="toc-text">十一、常见问题与补充事项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%BA%8C%E3%80%81%E5%9C%A8%E5%85%B6%E4%BB%96%E7%94%B5%E8%84%91%E4%B8%8A%E5%85%8B%E9%9A%86%E8%BF%90%E8%A1%8C"><span class="toc-number">1.13.</span> <span class="toc-text">十二、在其他电脑上克隆运行</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#12-1-%E5%85%8B%E9%9A%86%E6%BA%90%E7%A0%81"><span class="toc-number">1.13.1.</span> <span class="toc-text">12.1 克隆源码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-2-%E5%AE%89%E8%A3%85%E7%8E%AF%E5%A2%83"><span class="toc-number">1.13.2.</span> <span class="toc-text">12.2 安装环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-3-%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96"><span class="toc-number">1.13.3.</span> <span class="toc-text">12.3 安装依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-4-%E6%9C%AC%E5%9C%B0%E8%BF%90%E8%A1%8C"><span class="toc-number">1.13.4.</span> <span class="toc-text">12.4 本地运行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-5-%E6%96%B0%E7%94%B5%E8%84%91%E4%B8%8A%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="toc-number">1.13.5.</span> <span class="toc-text">12.5 新电脑上的工作流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-6-%E9%87%8D%E8%A6%81%E6%8F%90%E9%86%92"><span class="toc-number">1.13.6.</span> <span class="toc-text">12.6 重要提醒</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%B8%89%E3%80%81%E5%8F%8C%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84%E6%80%BB%E7%BB%93"><span class="toc-number">1.14.</span> <span class="toc-text">十三、双分支结构总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%AB%E6%8D%B7%E5%91%BD%E4%BB%A4%E5%88%AB%E5%90%8D%EF%BC%88PowerShell%EF%BC%89"><span class="toc-number">1.15.</span> <span class="toc-text">快捷命令别名（PowerShell）</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/gsll-blog/2026/06/22/%E6%B5%B7%E5%8D%97%E8%88%AA%E7%A9%BA%20App%20hnairSign%E7%AD%BE%E5%90%8D%E5%88%86%E6%9E%90%20Unidbg%20%E7%AE%80%E5%8D%95%E5%BA%94%E7%94%A8%E5%AE%9E%E6%88%98/" title="XX航空 App hnairSign签名分析 —— Unidbg 简单使用"><img src="https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/15.jpg" onerror="this.onerror=null;this.src='/gsll-blog/img/404.jpg'" alt="XX航空 App hnairSign签名分析 —— Unidbg 简单使用"/></a><div class="content"><a class="title" href="/gsll-blog/2026/06/22/%E6%B5%B7%E5%8D%97%E8%88%AA%E7%A9%BA%20App%20hnairSign%E7%AD%BE%E5%90%8D%E5%88%86%E6%9E%90%20Unidbg%20%E7%AE%80%E5%8D%95%E5%BA%94%E7%94%A8%E5%AE%9E%E6%88%98/" title="XX航空 App hnairSign签名分析 —— Unidbg 简单使用">XX航空 App hnairSign签名分析 —— Unidbg 简单使用</a><time datetime="2026-06-22T08:19:00.000Z" title="发表于 2026-06-22 16:19:00">2026-06-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/gsll-blog/2026/06/12/%E9%9B%B7%E6%B1%A0level2-%E6%8E%92%E7%89%88%E4%BC%98%E5%8C%96%E7%89%88/" title="雷池 WAF 人机验证逆向分析"><img src="https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/14.jpg" onerror="this.onerror=null;this.src='/gsll-blog/img/404.jpg'" alt="雷池 WAF 人机验证逆向分析"/></a><div class="content"><a class="title" href="/gsll-blog/2026/06/12/%E9%9B%B7%E6%B1%A0level2-%E6%8E%92%E7%89%88%E4%BC%98%E5%8C%96%E7%89%88/" title="雷池 WAF 人机验证逆向分析">雷池 WAF 人机验证逆向分析</a><time datetime="2026-06-12T11:43:00.000Z" title="发表于 2026-06-12 19:43:00">2026-06-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/gsll-blog/2026/06/08/%E5%87%A4%E5%87%B0%E6%96%B0%E9%97%BBAPP%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98/" title="X凰新闻 APP 逆向实战 — 绕过 libmsaoaidsec.so 反调试与签名定位"><img src="https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/13.jpg" onerror="this.onerror=null;this.src='/gsll-blog/img/404.jpg'" alt="X凰新闻 APP 逆向实战 — 绕过 libmsaoaidsec.so 反调试与签名定位"/></a><div class="content"><a class="title" href="/gsll-blog/2026/06/08/%E5%87%A4%E5%87%B0%E6%96%B0%E9%97%BBAPP%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98/" title="X凰新闻 APP 逆向实战 — 绕过 libmsaoaidsec.so 反调试与签名定位">X凰新闻 APP 逆向实战 — 绕过 libmsaoaidsec.so 反调试与签名定位</a><time datetime="2026-06-08T04:04:00.000Z" title="发表于 2026-06-08 12:04:00">2026-06-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/gsll-blog/2026/05/28/Frida_Java_perform_%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF%E6%8E%92%E6%9F%A5%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88_%E4%BC%98%E5%8C%96%E7%89%88/" title="Pixel 6 + Android 15 Frida `Java.perform()` TypeError: not a function 解决方案"><img src="https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/8.webp" onerror="this.onerror=null;this.src='/gsll-blog/img/404.jpg'" alt="Pixel 6 + Android 15 Frida `Java.perform()` TypeError: not a function 解决方案"/></a><div class="content"><a class="title" href="/gsll-blog/2026/05/28/Frida_Java_perform_%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF%E6%8E%92%E6%9F%A5%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88_%E4%BC%98%E5%8C%96%E7%89%88/" title="Pixel 6 + Android 15 Frida `Java.perform()` TypeError: not a function 解决方案">Pixel 6 + Android 15 Frida `Java.perform()` TypeError: not a function 解决方案</a><time datetime="2026-05-28T06:30:00.000Z" title="发表于 2026-05-28 14:30:00">2026-05-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/gsll-blog/2026/05/18/Hexo-%E5%8D%9A%E5%AE%A2%E5%AE%8C%E6%95%B4%E9%83%A8%E7%BD%B2%E5%88%B0-GitHub-%E6%95%99%E7%A8%8B%EF%BC%88Windows-%E7%89%88%EF%BC%89/" title="Hexo 博客完整部署到 GitHub 教程（Windows 版）"><img src="https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/7.webp" onerror="this.onerror=null;this.src='/gsll-blog/img/404.jpg'" alt="Hexo 博客完整部署到 GitHub 教程（Windows 版）"/></a><div class="content"><a class="title" href="/gsll-blog/2026/05/18/Hexo-%E5%8D%9A%E5%AE%A2%E5%AE%8C%E6%95%B4%E9%83%A8%E7%BD%B2%E5%88%B0-GitHub-%E6%95%99%E7%A8%8B%EF%BC%88Windows-%E7%89%88%EF%BC%89/" title="Hexo 博客完整部署到 GitHub 教程（Windows 版）">Hexo 博客完整部署到 GitHub 教程（Windows 版）</a><time datetime="2026-05-18T02:30:00.000Z" title="发表于 2026-05-18 10:30:00">2026-05-18</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2026 By <a class="footer-bar-link" href="/gsll-blog/" title="糕手来咯" target="_blank">糕手来咯</a></div></div><div id="footer-type-tips"></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主题">主题</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/gsll-blog/archives/" title="archive"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/gsll-blog/tags/" title="tag"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/gsll-blog/categories/" title="category"><div class="headline">分类</div><div class="length-num">3</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://hexo.anheyu.com/" title="博客"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="博客"/><span class="back-menu-item-text">博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://image.anheyu.com/" title="安知鱼图床"><img class="back-menu-item-icon" src="https://image.anheyu.com/favicon.ico" alt="安知鱼图床"/><span class="back-menu-item-text">安知鱼图床</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/gsll-blog/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/gsll-blog/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/gsll-blog/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/gsll-blog/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/gsll-blog/fcircle/"><i class="anzhiyufont anzhiyu-icon-artstation faa-tada" style="font-size: 0.9em;"></i><span> 朋友圈</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/gsll-blog/comments/"><i class="anzhiyufont anzhiyu-icon-envelope faa-tada" style="font-size: 0.9em;"></i><span> 留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/gsll-blog/music/"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/gsll-blog/bangumis/"><i class="anzhiyufont anzhiyu-icon-bilibili faa-tada" style="font-size: 0.9em;"></i><span> 追番页</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/gsll-blog/album/"><i class="anzhiyufont anzhiyu-icon-images faa-tada" style="font-size: 0.9em;"></i><span> 相册集</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/gsll-blog/air-conditioner/"><i class="anzhiyufont anzhiyu-icon-fan faa-tada" style="font-size: 0.9em;"></i><span> 小空调</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/gsll-blog/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/gsll-blog/essay/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 闲言碎语</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/gsll-blog/tags/Android-Reverse/" style="font-size: 0.88rem;">Android Reverse<sup>3</sup></a><a href="/gsll-blog/tags/Web-Reverse/" style="font-size: 0.88rem;">Web Reverse<sup>1</sup></a><a href="/gsll-blog/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" style="font-size: 0.88rem;">技术分享<sup>5</sup></a></div></div><hr/></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="anzhiyufont anzhiyu-icon-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="8152976493" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random" volume="0.7"></meting-js></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/gsll-blog/js/utils.js"></script><script src="/gsll-blog/js/main.js"></script><script src="/gsll-blog/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@6.1.6/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@19.1.3/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
+var HoldLog = console.log;
+console.log = function () {};
+let now1 = new Date();
+queueMicrotask(() => {
+  const Log = function () {
+    HoldLog.apply(console, arguments);
+  }; //在恢复前输出日志
+  const grt = new Date("01/01/2026 00:00:00"); //此处修改你的建站时间或者网站上线时间
+  now1.setTime(now1.getTime() + 250);
+  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
+  const dnum = Math.floor(days);
+  const ascll = [
+    `欢迎使用安知鱼!`,
+    `生活明朗, 万物可爱`,
+    `
+        
+       █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
+      ██╔══██╗████╗  ██║╚══███╔╝██║  ██║██║╚██╗ ██╔╝██║   ██║
+      ███████║██╔██╗ ██║  ███╔╝ ███████║██║ ╚████╔╝ ██║   ██║
+      ██╔══██║██║╚██╗██║ ███╔╝  ██╔══██║██║  ╚██╔╝  ██║   ██║
+      ██║  ██║██║ ╚████║███████╗██║  ██║██║   ██║   ╚██████╔╝
+      ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
+        
+        `,
+    "已上线",
+    dnum,
+    "天",
+    "©2026 By 安知鱼 V1.7.1",
+  ];
+  const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
+
+  setTimeout(
+    Log.bind(
+      console,
+      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      ""
+    )
+  );
+  setTimeout(
+    Log.bind(
+      console,
+      `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
+      "color:white; background-color:#4fd953",
+      "",
+      "",
+      'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(
+      console,
+      "%c ⚡ Powered by 安知鱼 %c 你正在访问 糕手来咯 的博客.",
+      "color:white; background-color:#f0ad4e",
+      ""
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
+  );
+});</script><script async src="/anzhiyu/random.js"></script><div class="js-pjax"><script>(()=>{
+  const getGiscusTheme = theme => {
+    return theme === 'dark' ? 'dark' : 'light'
+  }
+
+  const loadGiscus = () => {
+    const config = Object.assign({
+      src: 'https://giscus.app/client.js',
+      'data-repo': 'gaoshoulailo/gsll-blog',
+      'data-repo-id': 'R_kgDOSgq4Rg',
+      'data-category-id': 'DIC_kwDOSgq4Rs4C_xLH',
+      'data-theme': getGiscusTheme(document.documentElement.getAttribute('data-theme')),
+      'data-reactions-enabled': '1',
+      crossorigin: 'anonymous',
+      async: true
+    },{"data-lang":"zh-CN","data-mapping":"pathname","data-category":null,"data-input-position":"bottom","data-reactions-enabled":"1","data-emit-metadata":"0"})
+
+    const ele = document.createElement('script')
+    for (let key in config) {
+      ele.setAttribute(key, config[key])
+    }
+    document.getElementById('giscus-wrap').appendChild(ele)
+  }
+
+  const changeGiscusTheme = theme => {
+    const sendMessage = message => {
+      const iframe = document.querySelector('iframe.giscus-frame')
+      if (!iframe) return
+      iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app')
+    }
+
+    sendMessage({
+      setConfig: {
+        theme: getGiscusTheme(theme)
+      }
+    });
+  }
+
+  anzhiyu.addGlobalFn('themeChange', changeGiscusTheme, 'giscus')
+
+  if ('Giscus' === 'Giscus' || !false) {
+    if (false) anzhiyu.loadComment(document.getElementById('giscus-wrap'), loadGiscus)
+    else loadGiscus()
+  } else {
+    window.loadOtherComment = loadGiscus
+  }
+})()</script><input type="hidden" name="page-type" id="page-type" value="post"></div><script>var visitorMail = "";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://cdn.cbd.int/qrcodejs@1.0.0/qrcode.min.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><script src="/gsll-blog/js/light-bg.js"></script><script id="canvas_nest" defer="defer" color="255,255,255" opacity="0.7" zIndex="-1" count="200" mobile="false" src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/dist/canvas-nest.min.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/gsll-blog/404.html')
+  }
+})</script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>
