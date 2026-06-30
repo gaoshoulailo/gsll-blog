@@ -602,11 +602,11 @@ google_adsense:
 
 site_verification:
   - name: google-site-verification
-    content: xxx
+    content: 3gSJtsAs5OG6EFsDdAPKZ1MabLTrLAHR4BvJwEZijdA
   - name: baidu-site-verification
     content: code-xxx
   - name: msvalidate.01
-    content: xxx
+    content: 40A3E43ACA29D95658C1C5C9BBA8F3EA
 
 # Beautify/Effect (美化/效果)
 # --------------------------------------
