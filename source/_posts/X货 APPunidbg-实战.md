@@ -2,8 +2,8 @@
 title: X货 APP — Unidbg 补环境调用 Native 解密实践
 tags: [技术分享, Android Reverse]
 categories: [技术分享, Android Reverse]
-cover: https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/18.jpg
-top_img: https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/18.jpg
+cover: https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/19.jpg
+top_img: https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/19.jpg
 date: 2026-07-07 16:19:00
 ---
 # X货 APP — Unidbg 补环境调用 Native 解密实践
