@@ -2,8 +2,8 @@
 title: Hexo 博客完整部署到 GitHub 教程（Windows 版）
 tags: [技术分享]
 categories: [技术分享]
-cover: https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/7.webp
-top_img: https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/7.webp
+cover: https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/20.jpg
+top_img: https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/20.jpg
 date: 2026-05-18 10:30:00
 ---
 # Hexo 博客完整部署到 GitHub 教程（Windows 版）
