@@ -47,7 +47,7 @@ APP 版本为 **8.81.1**：
 
 ![反调试](https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/%E8%AF%86%E8%B4%A73.jpg)
 
-参考绕过脚本干掉反调试后，通过 hook `RegisterNatives` 以及关键字符串交叉引用，定位到解密函数在 `libdusanwa.so` 中：
+参考文章:{% post_link 凤凰新闻APP逆向实战 "X凰新闻 APP 逆向实战 — 绕过 libmsaoaidsec.so 反调试与签名定位" %},绕过反调试后，通过 hook以及关键字符串交叉引用，定位到解密函数在 `libdusanwa.so` 中：
 
 ![定位](https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/%E8%AF%86%E8%B4%A74.jpg)
 
