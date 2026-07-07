@@ -72,7 +72,7 @@ Hook 拿到密文字节数组：
 | `gnr` | `([B)[B` |
 | `pan` | `([B)Ljava/lang/String;` |
 
-目标函数是 **`heracles`**，对应 SO文件名：
+目标函数是 **`heracles`**，对应 SO文件名(函数的调用需要实例化对象，可以直接找实例化对象的位置)：
 
 ![注册信息](https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/%E8%AF%86%E8%B4%A78.jpg)
 
@@ -110,6 +110,8 @@ public class ShiHuo extends AbstractJni {
 将 Frida hook 到的密文数据填入调用：
 
 ```java
+ byte [] barry= Base64.getUrlDecoder().decode("");
+        barry = new byte[]{字节数组}
 ByteArray obj = swSdk.callStaticJniMethodObject(
         emulator,
         "heracles([BIII)[B",
@@ -126,7 +128,7 @@ ByteArray obj = swSdk.callStaticJniMethodObject(
 
 `vm.setVerbose(true)` 是补环境的核心工具。
 
-> **口诀**：每条 `GetMethodID methodName=xxx` + 紧跟的 `CallObjectMethod` = 一次 JNI 回调。结合 `dvmObject=xxx` 的类名，拼出完整调用链。
+> **技巧**：每条 `GetMethodID methodName=xxx` + 紧跟的 `CallObjectMethod` = 一次 JNI 回调。结合 `dvmObject=xxx` 的类名，拼出完整调用链,我们补环境就是把这些没覆盖的调用一个个补上。
 
 ```
 GetMethodID ... methodName=getApplication
@@ -149,6 +151,8 @@ GetObjectArrayElement index=0         → signatures[0]
 GetMethodID ... methodName=toCharsString
 CallObjectMethod                      → signature.toCharsString()
 ```
+观察日志知，调用链
+当前调用链 getPackageManager()->getPackageName()->getPackageInfo()->signatures()->toCharsString()->getBytes()
 
 ### 5.2 第一轮：补基础类
 
