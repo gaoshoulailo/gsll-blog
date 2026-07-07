@@ -76,7 +76,7 @@ Hook 拿到密文字节数组：
 
 ![注册信息](https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/%E8%AF%86%E8%B4%A78.jpg)
 
-用 IDA Pro 打开 `lib/arm64-v8a/libdusanwa.so` 确认：
+用 IDA Pro 打开 `lib/arm64-v8a/libdusanwa.so` 发现是控制平坦流,使用unidbg可以更快解决：
 
 ![IDA](https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/%E8%AF%86%E8%B4%A79.jpg)
 
