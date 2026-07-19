@@ -17,8 +17,20 @@
     "https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/14.jpg",
     "https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/15.jpg",
     "https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/16.jpg",
-    // "https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/17.jpg",
-    // "https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/18.jpg",
+    "https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/17.jpg",
+    "https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/18.jpg",
+    "https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/19.jpg",
+    "https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/20.jpg",
+    "https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/21.jpg",
+    "https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/22.jpg",
+    "https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/23.jpg",
+    "https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/24.jpg",
+    "https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/25.jpg",
+    "https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/26.jpg",
+    "https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/27.jpg",
+    "https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/28.jpg",
+    "https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/29.jpg",
+    "https://cdn.jsdelivr.net/gh/gaoshoulailo/image-host-1@main/background-image/30.jpg",
   ];
 
   var webBg = document.getElementById("web_bg");
